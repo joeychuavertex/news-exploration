@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from newscatcherapi import NewsCatcherApiClient
 
-newscatcherapi = NewsCatcherApiClient(x_api_key='r5vce2FyTc1gog5rfMKkpbAcVNSS3vghqKSxEAzlcaQ')
+newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
 vpcs = pd.read_excel("sample-vpc-list.xlsx")
 vpc_companies = vpcs["Company/Service Name"].tolist()

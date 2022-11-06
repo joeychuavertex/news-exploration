@@ -1,7 +1,7 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
-newscatcherapi = NewsCatcherApiClient(x_api_key='r5vce2FyTc1gog5rfMKkpbAcVNSS3vghqKSxEAzlcaQ')
+newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
 news_articles = newscatcherapi.get_search(q='*',
                                           from_="1 week ago",
