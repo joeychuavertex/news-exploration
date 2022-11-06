@@ -12,7 +12,7 @@ vpc_companies = vpcs["Company/Service Name"].tolist()
 
 query = st.selectbox("Companies", vpc_companies)
 add_query = st.text_input("Add Keywords", "allay")
-suggested_keywords_add = st.caption("Add: allay")
+suggested_keywords_add = st.caption("Suggestions: allay")
 not_query = st.text_input("Remove Keywords", "singapore", placeholder="Type Keywords to Remove")
 suggested_keywords_remove = st.caption("Suggestions: singapore")
 
