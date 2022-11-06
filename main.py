@@ -3,7 +3,7 @@ import streamlit as st
 
 newscatcherapi = NewsCatcherApiClient(x_api_key='r5vce2FyTc1gog5rfMKkpbAcVNSS3vghqKSxEAzlcaQ')
 
-news_articles = newscatcherapi.get_search(q='elon musk',
+news_articles = newscatcherapi.get_search(q='*',
                                           from_="1 week ago",
                                           lang='en',
                                           countries='CA',
@@ -16,7 +16,12 @@ for article in news_articles["articles"]:
                     "link": article["link"],
                     "pub_date": article["published_date"],
                     "summary": article["excerpt"],
-                    "image": article["media"]}
+                    "image": article["media"],
+                    "source": article["clean_url"],
+                    "topic": article["topic"],
+                    "country": article["country"],
+                    "language": article["language"],
+                    }
     api_articles.append(temp_article)
 
 
@@ -32,14 +37,20 @@ for index in range(len(api_articles)):
     title = article["title"]
     link = article["link"]
     date = article["pub_date"]
+    summary = article["summary"]
+    source = article["source"]
+
     st.markdown(f"### [{title}]({link})")
+
     if article["image"] == None:
-        pass
+        image = st.text("No Image")
     else:
         image = article["image"]
         st.image(image)
-    st.caption(f"{date}")
-    st.write(article["summary"])
+
+    st.caption(f"Date: {date}")
+    st.write(f"Source: {source}")
+    st.write(f"Summary: {summary}")
 
     # if no_of_articles == article_index + 1:
     #     article_index += 1
