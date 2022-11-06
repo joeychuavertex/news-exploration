@@ -1,8 +1,7 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
-newscatcherapi = NewsCatcherApiClient(x_api_key='r5vce2FyTc1gog5rfMKkpbAcVNSS3vghqKSxEAzlcaQ')
-
+newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
 query = st.text_input('Key in Query', "robotics")
 not_query = st.text_input("Remove Keywords", "engineer")
