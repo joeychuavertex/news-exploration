@@ -1,2 +1,4 @@
 newscatcherapi
 streamlit
+pandas
+openpyxl
