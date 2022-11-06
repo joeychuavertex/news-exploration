@@ -9,7 +9,7 @@ news_articles = newscatcherapi.get_search(q='*',
                                           from_="1 week ago",
                                           lang='en',
                                           countries='CA',
-                                          page_size=10)
+                                          page_size=100)
 
 api_articles = []
 
