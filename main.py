@@ -1,6 +1,8 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
+st.header("Read the Latest News")
+
 newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
 news_articles = newscatcherapi.get_search(q='*',

@@ -5,6 +5,8 @@ from newscatcherapi import NewsCatcherApiClient
 
 newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
+st.header("Search VPC News")
+
 vpcs = pd.read_excel("sample-vpc-list.xlsx")
 vpc_companies = vpcs["Company/Service Name"].tolist()
 

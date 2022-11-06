@@ -1,6 +1,8 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
+st.header("Search Relevant News")
+
 newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
 query = st.text_input('Key in Query', "robotics")
