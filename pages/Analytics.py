@@ -27,7 +27,7 @@ news_articles = newscatcherapi.get_search(q=f"{query}",
                                           from_=str(from_date),
                                           to_=str(to_date),
                                           # lang='en',
-                                          page_size=10
+                                          page_size=100
                                           )
 
 

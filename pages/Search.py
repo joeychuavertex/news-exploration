@@ -13,7 +13,7 @@ not_query = st.text_input("Remove Keywords", "drugs google AI")
 news_articles = newscatcherapi.get_search(q=f"{query} NOT {not_query}",
                                           from_="40 week ago",
                                           lang='en',
-                                          page_size=10,
+                                          page_size=100,
                                           )
 
 api_articles = []
