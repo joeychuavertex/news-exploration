@@ -5,15 +5,14 @@ st.header("Search Relevant News")
 
 newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
-query = st.text_input('Key in Query', "robotics")
-not_query = st.text_input("Remove Keywords", "engineer")
+query = st.text_input('Key in Query', "vertex ventures")
+not_query = st.text_input("Remove Keywords", "drugs google AI")
 # sources = st.text_input('Only Sources', "")
 # not_sources = st.text_input('Remove Sources', "")
 
 news_articles = newscatcherapi.get_search(q=f"{query} NOT {not_query}",
-                                          from_="1 week ago",
+                                          from_="40 week ago",
                                           lang='en',
-                                          countries='CA',
                                           page_size=10,
                                           )
 

@@ -11,10 +11,10 @@ vpcs = pd.read_excel("sample-vpc-list.xlsx")
 vpc_companies = vpcs["Company/Service Name"].tolist()
 
 query = st.selectbox("Companies", vpc_companies)
-add_query = st.text_input("Add Keywords", "allay")
-suggested_keywords_add = st.caption("Suggestions: allay")
-not_query = st.text_input("Remove Keywords", "singapore", placeholder="Type Keywords to Remove")
-suggested_keywords_remove = st.caption("Suggestions: singapore")
+add_query = st.text_input("Add Keywords", "funding")
+suggested_keywords_add = st.caption("Suggestions: funding")
+not_query = st.text_input("Remove Keywords", "animals", placeholder="Type Keywords to Remove")
+suggested_keywords_remove = st.caption("Suggestions: animals")
 
 
 col1, col2 = st.columns(2)
@@ -28,7 +28,7 @@ news_articles = newscatcherapi.get_search(q=f"{query} AND {add_query} NOT {not_q
                                           from_=str(from_date),
                                           to_=str(to_date),
                                           lang='en',
-                                          page_size=10)
+                                          page_size=100)
 
 api_articles = []
 

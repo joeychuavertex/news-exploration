@@ -8,7 +8,7 @@ newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 news_articles = newscatcherapi.get_search(q='*',
                                           from_="1 week ago",
                                           lang='en',
-                                          countries='CA',
+                                          countries='SG',
                                           page_size=100)
 
 api_articles = []
