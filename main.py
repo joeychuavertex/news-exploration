@@ -1,3 +1,4 @@
+import pandas as pd
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
@@ -63,6 +64,26 @@ for article in news_articles["articles"]:
                     "language": article["language"],
                     }
     api_articles.append(temp_article)
+
+
+df = pd.DataFrame(api_articles)
+
+col1, col2 = st.columns(2)
+with col1:
+    col1.metric("Count of Articles", len(df))
+    article_count_df = (
+        df.groupby("pub_date").count().reset_index()
+    )
+    # st.dataframe(df)
+    st.bar_chart(article_count_df, x="pub_date", y="title")
+with col2:
+    col2.metric("Count of Sources", df["source"].nunique())
+    sources_count_df = (
+        df.groupby("source").count().reset_index()
+    )
+
+    # st.dataframe(sources_count_df)
+    st.bar_chart(sources_count_df, x="source", y="title")
 
 
 # columns = st.columns(2)
