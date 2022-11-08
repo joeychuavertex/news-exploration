@@ -43,6 +43,11 @@ with col5:
         ('Geek+', 'Allay Therapeutics', 'Nium'))
 
 
+context_option = st.text_input(
+    'Define context of Search',
+    'Show me data breaches from last 6 months')
+
+
 
 api_articles = []
 
