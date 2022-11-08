@@ -1,7 +1,7 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
-st.header("Read the Latest News")
+st.header("Read the Latest/Breaking News")
 
 newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
 
@@ -10,6 +10,28 @@ news_articles = newscatcherapi.get_search(q='*',
                                           lang='en',
                                           # countries='SG',
                                           page_size=100)
+
+col1, col2, col3 = st.columns(3)
+
+# Industry
+with col1:
+    industry_option = st.selectbox(
+        'Select Industries',
+        ('Accounting', 'Venture Capital', 'Technology'))
+
+# Technologies
+with col2:
+    technology_option = st.selectbox(
+        'Select Technology',
+        ('Cryptocurrency', 'CleanTech', 'Automation'))
+
+# Type of Activity
+with col3:
+    activity_option = st.selectbox(
+        'Select Activity',
+        ('C Suite Hiring', 'Fundraising', 'Others'))
+
+
 
 api_articles = []
 
@@ -57,4 +79,5 @@ for index in range(len(api_articles)):
     # if no_of_articles == article_index + 1:
     #     article_index += 1
     #     col_index *= -1
+
 
