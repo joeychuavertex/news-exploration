@@ -32,7 +32,7 @@ with col3:
         'Select Activity',
         ('C Suite Hiring', 'Fundraising', 'Products', 'etc'))
 
-col4, col5 = st.columns(2)
+col4, col5, col6 = st.columns(3)
 with col4:
     competitor_option = st.selectbox(
         'Select Competitor of VPC',
@@ -42,6 +42,12 @@ with col5:
     customer_option = st.selectbox(
         'Select Customer of VPC',
         ('Geek+', 'Allay Therapeutics', 'Nium'))
+
+with col6:
+    geography_option = st.selectbox(
+        'Select Geography',
+        ('Singapore', 'Israel', 'US'))
+
 
 
 context_option = st.text_input(
