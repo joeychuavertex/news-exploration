@@ -29,7 +29,7 @@ with col2:
 with col3:
     activity_option = st.selectbox(
         'Select Activity',
-        ('C Suite Hiring', 'Fundraising', 'Others'))
+        ('C Suite Hiring', 'Fundraising', 'Products', 'etc'))
 
 col4, col5 = st.columns(2)
 with col4:
