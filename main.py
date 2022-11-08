@@ -37,7 +37,7 @@ with col4:
         'Select Competitor of VPC',
         ('Geek+', 'Allay Therapeutics', 'Nium'))
 
-with col4:
+with col5:
     customer_option = st.selectbox(
         'Select Customer of VPC',
         ('Geek+', 'Allay Therapeutics', 'Nium'))
