@@ -31,6 +31,17 @@ with col3:
         'Select Activity',
         ('C Suite Hiring', 'Fundraising', 'Others'))
 
+col4, col5 = st.columns(2)
+with col4:
+    competitor_option = st.selectbox(
+        'Select Competitor of VPC',
+        ('Geek+', 'Allay Therapeutics', 'Nium'))
+
+with col4:
+    customer_option = st.selectbox(
+        'Select Customer of VPC',
+        ('Geek+', 'Allay Therapeutics', 'Nium'))
+
 
 
 api_articles = []
