@@ -4,7 +4,8 @@ import streamlit as st
 
 st.header("Read the Latest/Breaking News")
 
-newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
+# newscatcherapi = NewsCatcherApiClient(st.secrets["x_api_key"])
+newscatcherapi = NewsCatcherApiClient(open("token.txt").read())
 
 news_articles = newscatcherapi.get_search(q='*',
                                           from_="1 week ago",
@@ -48,13 +49,9 @@ with col6:
         'Select Geography',
         ('Singapore', 'Israel', 'US'))
 
-
-
 context_option = st.text_input(
     'Define context of Search',
     'Show me data breaches from last 6 months')
-
-
 
 api_articles = []
 
@@ -70,7 +67,6 @@ for article in news_articles["articles"]:
                     "language": article["language"],
                     }
     api_articles.append(temp_article)
-
 
 df = pd.DataFrame(api_articles)
 
@@ -91,7 +87,6 @@ with col2:
     # st.dataframe(sources_count_df)
     st.bar_chart(sources_count_df, x="source", y="title")
 
-
 # columns = st.columns(2)
 # no_of_articles = len(api_articles)
 # article_index = 0
@@ -109,11 +104,10 @@ for index in range(len(api_articles)):
 
     st.markdown(f"### [{title}]({link})")
 
-    if article["image"] == None:
-        image = st.text("No Image")
+    if article["image"]:
+        st.image(article["image"])
     else:
-        image = article["image"]
-        st.image(image)
+        image = st.text("No Image")
 
     st.caption(f"Date: {date}")
     st.write(f"Source: {source}")
@@ -122,5 +116,3 @@ for index in range(len(api_articles)):
     # if no_of_articles == article_index + 1:
     #     article_index += 1
     #     col_index *= -1
-
-
